@@ -4,9 +4,9 @@
   <title>Survey Bot</title>
   <script src="lib/angular.js"></script>
   <script src="app.js"></script>
-  <script src="controllers/QuestionOneController.js"></script>
-  <script src="controllers/QuestionTwoController.js"></script>
-  <script src="services/QuestionsFactory.js"></script>
+  <script src="controllers/QuestionsController.js"></script>
+  <script src="controllers/ResultsController.js"></script>
+  <script src="services/SurveyFactory.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
@@ -15,29 +15,27 @@
     <h1>Survey Bot</h1>
       <div class="row">
         <div class="col-md-12">
-          <div ng-controller="QuestionOneCtrl">
-            <form ng-hide="answerOne" ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
+          <div ng-controller="QuestionsCtrl">
+            <form ng-submit="SurveyFactory.addAnswers()" class="inline-form" role="form">
               <div class="form-group">
                 <label for="question-one">Question One.</label>
-                <input type="text" ng-model="QuestionsFactory.answerOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="text" ng-model="SurveyFactory.questionResultOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
               </div>
-            </form>
-          </div>
-  <!-- end questionOne ctrl -->
-        </div>
-      </div>
-        <div class="col-md-12">
-          <div ng-contoller="QuestionTwoCtrl">
-            <form ng-show="answerOne" ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
               <div class="form-group">
                 <label for="question-two">Question Two.</label>
-                <input type="text" ng-model="QuestionsFactory.answerTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="text" ng-model="SurveyFactory.questionResultTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
               </div>
+                <button type="submit" class="btn btn-primary" ng-click="submitbutton=false">Submit</button>
             </form>
           </div>
+  <!-- end questionsCtrl -->
         </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2 ng-show="submitbutton">Thank you, your answers have been submitted</h2>
+        </div>
+      </div>
     </div>
   <!-- end container -->
   </div>
