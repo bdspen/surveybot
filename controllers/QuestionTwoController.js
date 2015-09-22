@@ -1,4 +1,6 @@
-studentRoster.controller('StudentsCtrl', function StudentsCtrl($scope, StudentsFactory) {
-  $scope.students = StudentsFactory.students;
-  $scope.StudentsFactory = StudentsFactory;
+surveyBot.controller('QuestionTwoCtrl', function QuestionTwoCtrl($scope, QuestionsFactory) {
+  $scope.answerTwo = QuestionsFactory.answers[1];
+  // $scope.addStudentWithPermissionSlip = function(student) {
+  //   student.permissionSlip = true;
+  // };
 });

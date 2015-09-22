@@ -6,35 +6,38 @@
   <script src="app.js"></script>
   <script src="controllers/QuestionOneController.js"></script>
   <script src="controllers/QuestionTwoController.js"></script>
-  <script src="services/QuestionsFactories.js"></script>
+  <script src="services/QuestionsFactory.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
   <!-- answer forms -->
   <div class="container">
     <h1>Survey Bot</h1>
-    <div ng-controller="QuestionOneCtrl">
       <div class="row">
         <div class="col-md-12">
-          <form ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
-            <div class="form-group">
-              <label for="question-one">Question One.</label>
-              <input type="text" ng-model="QuestionsFactory.answerOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+          <div ng-controller="QuestionOneCtrl">
+            <form ng-hide="answerOne" ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
+              <div class="form-group">
+                <label for="question-one">Question One.</label>
+                <input type="text" ng-model="QuestionsFactory.answerOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
   <!-- end questionOne ctrl -->
-        <div class="col-md-12">
-          <form ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
-            <div class="form-group">
-              <label for="question-two">Question Two.</label>
-              <input type="text" ng-model="QuestionsFactory.answerTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
-            </div>
-          </form>
         </div>
       </div>
+        <div class="col-md-12">
+          <div ng-contoller="QuestionTwoCtrl">
+            <form ng-show="answerOne" ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
+              <div class="form-group">
+                <label for="question-two">Question Two.</label>
+                <input type="text" ng-model="QuestionsFactory.answerTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
     </div>
   <!-- end container -->
   </div>
