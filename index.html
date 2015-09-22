@@ -1,16 +1,42 @@
 <!doctype html>
-<html ng-app="studentRoster">
+<html ng-app="surveyBot">
 <head>
-  <title>Student App</title>
+  <title>Survey Bot</title>
   <script src="lib/angular.js"></script>
   <script src="app.js"></script>
-  <script src="controllers/StudentsController.js"></script>
-  <script src="controllers/FieldTripsController.js"></script>
-  <script src="services/StudentsFactory.js"></script>
+  <script src="controllers/QuestionOneController.js"></script>
+  <script src="controllers/QuestionTwoController.js"></script>
+  <script src="services/QuestionsFactories.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
+  <!-- answer forms -->
   <div class="container">
+    <h1>Survey Bot</h1>
+    <div ng-controller="QuestionOneCtrl">
+      <div class="row">
+        <div class="col-md-12">
+          <form ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
+            <div class="form-group">
+              <label for="question-one">Question One.</label>
+              <input type="text" ng-model="QuestionsFactory.answerOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- end questionOne ctrl -->
+        <div class="col-md-12">
+          <form ng-submit="QuestionsFactory.addAnswers()" class="inline-form" role="form">
+            <div class="form-group">
+              <label for="question-two">Question Two.</label>
+              <input type="text" ng-model="QuestionsFactory.answerTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- end container -->
   </div>
 </body>
 </html>
