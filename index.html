@@ -12,28 +12,28 @@
 <body>
   <!-- answer forms -->
   <div class="container">
-    <h1>Survey Bot</h1>
-      <div class="row">
-        <div class="col-md-12">
-          <div ng-controller="QuestionsCtrl">
-            <form ng-submit="SurveyFactory.addAnswers()" class="inline-form" role="form">
-              <div class="form-group">
-                <label for="question-one">Question One.</label>
-                <input type="text" ng-model="SurveyFactory.questionResultOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
-              </div>
-              <div class="form-group">
-                <label for="question-two">Question Two.</label>
-                <input type="text" ng-model="SurveyFactory.questionResultTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
-              </div>
-                <button type="submit" class="btn btn-primary" ng-click="submitbutton=false">Submit</button>
-            </form>
+    <div ng-controller="QuestionsCtrl">
+      <h1>Survey Bot</h1>
+        <div class="row">
+          <div class="col-md-12">
+              <form ng-submit="SurveyFactory.addAnswers()" class="inline-form" role="form">
+                <div class="form-group">
+                  <label for="question-one">Question One.</label>
+                  <input type="text" ng-model="SurveyFactory.questionResultOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
+                </div>
+                <div class="form-group">
+                  <label for="question-two">Question Two.</label>
+                  <input type="text" ng-model="SurveyFactory.questionResultTwo" class="form-control" id="question-two" placeholder="What is your least favorite animal?">
+                </div>
+                  <button type="submit" class="btn btn-primary" ng-click="showEm=true">Submit</button>
+              </form>
+    <!-- end questionsCtrl -->
           </div>
-  <!-- end questionsCtrl -->
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h2 ng-show="submitbutton">Thank you, your answers have been submitted</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <h2 ng-show="showEm">Thank you, your answers have been submitted</h2>
+          </div>
         </div>
       </div>
     </div>
