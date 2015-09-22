@@ -15,8 +15,8 @@
     <div ng-controller="QuestionsCtrl">
       <h1>Survey Bot</h1>
         <div class="row">
-          <div class="col-md-12">
-              <form ng-submit="SurveyFactory.addAnswers()" class="inline-form" role="form">
+          <div class="col-md-6">
+              <form ng-hide="showEm" ng-submit="SurveyFactory.addAnswers()" class="inline-form" role="form">
                 <div class="form-group">
                   <label for="question-one">Question One.</label>
                   <input type="text" ng-model="SurveyFactory.questionResultOne" class="form-control" id="question-one" placeholder="What is your biggest fear?">
@@ -31,9 +31,27 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-12">
-            <h2 ng-show="showEm">Thank you, your answers have been submitted</h2>
+          <div ng-show="showEm" class="col-md-12">
+            <h2>Thank you, your answers have been submitted</h2>
+            <button ng-click="showEm=false" class="btn-lg btn-danger">Back</button>
           </div>
+        </div>
+      </div>
+      <button ng-click="showresults= showresults ? false : true" class=" btn btn-danger">Results</button>
+      <div ng-show="showresults" ng-controller="ResultsCtrl" class="row">
+        <div class="col-md-12">
+          <h3>Question One Answers:</h3>
+          <ul>
+            <li ng-repeat="item in resultsOne">
+              {{item.questionOne}}
+            </li>
+          </ul>
+          <h3>Question Two Answers:</h3>
+          <ul>
+            <li ng-repeat="item in resultsTwo">
+              {{item.questionTwo}}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

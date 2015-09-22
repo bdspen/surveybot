@@ -1,4 +1,6 @@
-// surveyBot.controller('QuestionTwoCtrl', function QuestionTwoCtrl($scope, QuestionsFactory) {
-//   $scope.answerTwo = QuestionsFactory.answersTwo;
-//
-// });
+surveyBot.controller('ResultsCtrl', function ResultsCtrl($scope, SurveyFactory) {
+  $scope.resultsOne = SurveyFactory.answersOne;
+  $scope.resultsTwo = SurveyFactory.answersTwo;
+  $scope.SurveyFactory = SurveyFactory;
+
+});
