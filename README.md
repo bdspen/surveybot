@@ -1,8 +1,9 @@
 # Angular Surveybot App
-### _A survey app where users can answer two simple questions using different controllers for each question, but with a single factory that collects the responses._
+### _A survey app where users can answer two simple questions using different controllers for each question, but with a single factory that collects the responses. This app uses only one view._
 ### By Ben Spenard and Alexandra Brown
-## Description
+## Directions
 _Clone into local repo and open index.html in the browser_
+_Alternatively, try out the live demo above._
 
 ## Technologies Used
 _Angular.js, Javascript, Bootstrap_
