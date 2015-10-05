@@ -37,21 +37,27 @@
           </div>
         </div>
       </div>
-      <button ng-click="showresults= showresults ? false : true" class=" btn btn-danger">Results</button>
+      <button ng-click="showresults= showresults ? false : true" class=" btn btn-warning">See All Survey Results</button>
       <div ng-show="showresults" ng-controller="ResultsCtrl" class="row">
         <div class="col-md-12">
-          <h3>Question One Answers:</h3>
-          <ul>
-            <li ng-repeat="item in resultsOne">
-              {{item.questionOne}}
-            </li>
-          </ul>
-          <h3>Question Two Answers:</h3>
-          <ul>
-            <li ng-repeat="item in resultsTwo">
-              {{item.questionTwo}}
-            </li>
-          </ul>
+            <h3>Question One Answers:</h3>
+            <div ng-hide="ifResultsOne.length">
+              <h4>Sorry, no results yet.</h4>
+            </div>
+            <ul>
+              <li ng-repeat="item in (ifResultsOne = (resultsOne | filter: {answersOne: undefined}))">
+                {{item.questionOne}}
+              </li>
+            </ul>
+            <h3>Question Two Answers:</h3>
+            <div ng-hide="ifResultsTwo.length">
+              <h4>Sorry, no results yet.</h4>
+            </div>
+            <ul>
+              <li ng-repeat="item in (ifResultsTwo = (resultsTwo | filter: {answersTwo: undefined}))">
+                {{item.questionTwo}}
+              </li>
+            </ul>
         </div>
       </div>
     </div>
